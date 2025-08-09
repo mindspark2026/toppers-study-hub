@@ -1,0 +1,125 @@
+/* ===== General Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a; /* Dark background */
+    color: #facc15; /* Yellow text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+    background-color: #1e293b; /* Dark navy */
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: #3b82f6; /* Blue */
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+nav ul li a {
+    color: #facc15; /* Yellow */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3b82f6; /* Blue on hover */
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    padding: 2em;
+    text-align: center;
+}
+
+.search-bar {
+    margin-top: 1em;
+    padding: 0.5em;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* ===== Subjects Grid ===== */
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.subject-card {
+    display: block;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.subject-card:hover {
+    background: #007bff;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ===== Content Area ===== */
+.content {
+    padding: 2em;
+    text-align: center;
+    flex: 1;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: #1e293b;
+    color: #94a3b8;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-bar {
+        width: 90%;
+    }
+
+    .subjects {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
