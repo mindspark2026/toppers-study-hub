@@ -29,17 +29,35 @@
             <div class="chapter">
                 <h3>Chapter 1: Real Numbers</h3>
                 <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
-                <a href="maths/ch1-mcq.html" class="btn">❓ MCQ</a>
+
+                <!-- MCQ block -->
+                <div class="mcq-container">
+                    <h4>MCQs for Chapter 1</h4>
+
+                    <div class="mcq" data-answer="b">
+                        <p>1. What is the HCF of 18 and 24?</p>
+                        <label><input type="radio" name="q1" value="a"> 4</label>
+                        <label><input type="radio" name="q1" value="b"> 6</label>
+                        <label><input type="radio" name="q1" value="c"> 8</label>
+                        <button onclick="checkAnswer(this)">Check</button>
+                        <div class="result"></div>
+                    </div>
+
+                    <div class="mcq" data-answer="c">
+                        <p>2. Which is a prime number?</p>
+                        <label><input type="radio" name="q2" value="a"> 9</label>
+                        <label><input type="radio" name="q2" value="b"> 21</label>
+                        <label><input type="radio" name="q2" value="c"> 13</label>
+                        <button onclick="checkAnswer(this)">Check</button>
+                        <div class="result"></div>
+                    </div>
+                </div>
+                <!-- End MCQ block -->
             </div>
+
             <div class="chapter">
                 <h3>Chapter 2: Polynomials</h3>
                 <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
-                <a href="maths/ch2-mcq.html" class="btn">❓ MCQ</a>
-            </div>
-            <div class="chapter">
-                <h3>Chapter 3: Pair of Linear Equations</h3>
-                <a href="maths/ch3-notes.html" class="btn">📄 Notes</a>
-                <a href="maths/ch3-mcq.html" class="btn">❓ MCQ</a>
             </div>
         </div>
     </section>
@@ -48,5 +66,29 @@
         &copy; 2025 Topper's Study Hub. All rights reserved.
     </footer>
 
+    <script>
+        function checkAnswer(button) {
+            const mcq = button.closest('.mcq');
+            const correct = mcq.getAttribute('data-answer');
+            const selected = mcq.querySelector('input[type="radio"]:checked');
+            const result = mcq.querySelector('.result');
+
+            if (!selected) {
+                result.textContent = "Please select an answer.";
+                result.style.color = "orange";
+                return;
+            }
+
+            if (selected.value === correct) {
+                result.textContent = "✅ Correct!";
+                result.style.color = "green";
+            } else {
+                result.textContent = "❌ Wrong! Correct answer is option " + correct.toUpperCase();
+                result.style.color = "red";
+            }
+        }
+    </script>
+
 </body>
-</html>
+    </html>
+    
