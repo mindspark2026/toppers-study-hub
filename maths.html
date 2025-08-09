@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics - Topper's Study Hub</title>
     <link rel="stylesheet" href="maths.css">
-    <style>
-        .mcq-container {
-            display: none;
-            margin-top: 10px;
-            background: #f8f8f8;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        .mcq-question {
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
 
@@ -38,36 +25,48 @@
     <h1>Mathematics</h1>
     <p>Select a chapter to view Notes or MCQs.</p>
 
-    <div class="chapter-list">
-        <div class="chapter">
-            <h3>Chapter 1: Real Numbers</h3>
-            <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
-            <button class="btn" onclick="toggleMCQ('mcq1')">❓ MCQ</button>
-            <div id="mcq1" class="mcq-container">
-                <div class="mcq-question">
-                    <p>1. HCF of 65 and 117 is:</p>
-                    <input type="radio" name="q1"> 1<br>
-                    <input type="radio" name="q1"> 13<br>
-                    <input type="radio" name="q1"> 5<br>
-                    <input type="radio" name="q1"> 3
-                </div>
-                <div class="mcq-question">
-                    <p>2. LCM of 6 and 15 is:</p>
-                    <input type="radio" name="q2"> 15<br>
-                    <input type="radio" name="q2"> 30<br>
-                    <input type="radio" name="q2"> 45<br>
-                    <input type="radio" name="q2"> 60
-                </div>
+    <!-- Chapter 1 -->
+    <div class="chapter">
+        <h3 onclick="toggleMCQ('mcq1')">Chapter 1: Real Numbers</h3>
+        <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
+        <div id="mcq1" class="mcq-container">
+            <div class="mcq-question">
+                <p>1. If HCF of 65 and 117 is 13, then LCM of 65 and 117 is:</p>
+                <label><input type="radio" name="q1" value="a"> 585</label><br>
+                <label><input type="radio" name="q1" value="b"> 605</label><br>
+                <label><input type="radio" name="q1" value="c"> 765</label><br>
+                <label><input type="radio" name="q1" value="d"> 915</label><br>
+                <button onclick="checkAnswer('q1','a')">Check Answer</button>
+                <div class="result" id="result-q1"></div>
+            </div>
+
+            <div class="mcq-question">
+                <p>2. The decimal expansion of 14587/1250 will terminate after:</p>
+                <label><input type="radio" name="q2" value="a"> 1 decimal place</label><br>
+                <label><input type="radio" name="q2" value="b"> 2 decimal places</label><br>
+                <label><input type="radio" name="q2" value="c"> 3 decimal places</label><br>
+                <label><input type="radio" name="q2" value="d"> 4 decimal places</label><br>
+                <button onclick="checkAnswer('q2','c')">Check Answer</button>
+                <div class="result" id="result-q2"></div>
             </div>
         </div>
+    </div>
 
-        <div class="chapter">
-            <h3>Chapter 2: Polynomials</h3>
-            <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
-            <button class="btn" onclick="toggleMCQ('mcq2')">❓ MCQ</button>
-            <div id="mcq2" class="mcq-container">
-                <p>MCQs for Chapter 2 will go here...</p>
-            </div>
+    <!-- Chapter 2 -->
+    <div class="chapter">
+        <h3 onclick="toggleMCQ('mcq2')">Chapter 2: Polynomials</h3>
+        <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
+        <div id="mcq2" class="mcq-container">
+            <p>MCQs for this chapter coming soon...</p>
+        </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+        <h3 onclick="toggleMCQ('mcq3')">Chapter 3: Pair of Linear Equations</h3>
+        <a href="maths/ch3-notes.html" class="btn">📄 Notes</a>
+        <div id="mcq3" class="mcq-container">
+            <p>MCQs for this chapter coming soon...</p>
         </div>
     </div>
 </section>
@@ -76,12 +75,33 @@
     &copy; 2025 Topper's Study Hub. All rights reserved.
 </footer>
 
+<!-- JavaScript -->
 <script>
 function toggleMCQ(id) {
-    let mcqBox = document.getElementById(id);
-    mcqBox.style.display = (mcqBox.style.display === "block") ? "none" : "block";
+    var mcq = document.getElementById(id);
+    mcq.style.display = (mcq.style.display === "block") ? "none" : "block";
+}
+
+function checkAnswer(questionName, correctAnswer) {
+    let options = document.getElementsByName(questionName);
+    let selected = null;
+    for (let option of options) {
+        if (option.checked) {
+            selected = option.value;
+            break;
+        }
+    }
+    let resultDiv = document.getElementById("result-" + questionName);
+    if (selected === null) {
+        resultDiv.innerHTML = "<span style='color:yellow'>Please select an answer.</span>";
+    } else if (selected === correctAnswer) {
+        resultDiv.innerHTML = "<span style='color:lightgreen'>Correct ✅</span>";
+    } else {
+        resultDiv.innerHTML = "<span style='color:red'>Wrong ❌</span>";
+    }
 }
 </script>
 
 </body>
-</html>
+                           </html>
+                           
