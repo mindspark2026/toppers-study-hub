@@ -118,3 +118,44 @@ footer {
     padding: 1em;
     color: #94a3b8;
 }
+.mcq-container {
+    background: #f8f8f8;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.mcq {
+    background: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.mcq label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.mcq button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.mcq button:hover {
+    background: #45a049;
+}
+
+.result {
+    margin-top: 5px;
+    font-weight: bold;
+    }
+
+
