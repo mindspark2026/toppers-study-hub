@@ -8,100 +8,130 @@
 </head>
 <body>
 
-<header>
-    <div class="logo">Topper's Study Hub</div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="maths.html">Maths</a></li>
-            <li><a href="science.html">Science</a></li>
-            <li><a href="english.html">English</a></li>
-            <li><a href="sst.html">SST</a></li>
-        </ul>
-    </nav>
-</header>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">Topper's Study Hub</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="maths.html">Maths</a></li>
+                <li><a href="science.html">Science</a></li>
+                <li><a href="english.html">English</a></li>
+                <li><a href="sst.html">SST</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<section class="content">
-    <h1>Mathematics</h1>
-    <p>Select a chapter to view Notes or MCQs.</p>
+    <!-- ===== CONTENT ===== -->
+    <section class="content">
+        <h1>Mathematics</h1>
+        <p>Select a chapter to view Notes or MCQs.</p>
 
-    <!-- Chapter 1 -->
-    <div class="chapter">
-        <h3 onclick="toggleMCQ('mcq1')">Chapter 1: Real Numbers</h3>
-        <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
-        <div id="mcq1" class="mcq-container">
-            <div class="mcq-question">
-                <p>1. If HCF of 65 and 117 is 13, then LCM of 65 and 117 is:</p>
-                <label><input type="radio" name="q1" value="a"> 585</label><br>
-                <label><input type="radio" name="q1" value="b"> 605</label><br>
-                <label><input type="radio" name="q1" value="c"> 765</label><br>
-                <label><input type="radio" name="q1" value="d"> 915</label><br>
-                <button onclick="checkAnswer('q1','a')">Check Answer</button>
-                <div class="result" id="result-q1"></div>
+        <div class="chapter-list">
+
+            <!-- Chapter 1 -->
+            <div class="chapter">
+                <h3>Chapter 1: Real Numbers</h3>
+                <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
+                <button class="btn" onclick="toggleMCQ('mcq1')">❓ MCQ</button>
+
+                <div id="mcq1" class="mcq-container">
+                    <div class="mcq-question">
+                        <p>Q1. What is the HCF of 48 and 60?</p>
+                        <div class="mcq-options">
+                            <label><input type="radio" name="q1"> 6</label>
+                            <label><input type="radio" name="q1"> 8</label>
+                            <label><input type="radio" name="q1"> 12</label>
+                            <label><input type="radio" name="q1"> 24</label>
+                        </div>
+                        <button onclick="checkAnswer('q1', 2)">Check Answer</button>
+                        <p class="result" id="result-q1"></p>
+                    </div>
+                </div>
             </div>
 
-            <div class="mcq-question">
-                <p>2. The decimal expansion of 14587/1250 will terminate after:</p>
-                <label><input type="radio" name="q2" value="a"> 1 decimal place</label><br>
-                <label><input type="radio" name="q2" value="b"> 2 decimal places</label><br>
-                <label><input type="radio" name="q2" value="c"> 3 decimal places</label><br>
-                <label><input type="radio" name="q2" value="d"> 4 decimal places</label><br>
-                <button onclick="checkAnswer('q2','c')">Check Answer</button>
-                <div class="result" id="result-q2"></div>
+            <!-- Chapter 2 -->
+            <div class="chapter">
+                <h3>Chapter 2: Polynomials</h3>
+                <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
+                <button class="btn" onclick="toggleMCQ('mcq2')">❓ MCQ</button>
+
+                <div id="mcq2" class="mcq-container">
+                    <div class="mcq-question">
+                        <p>Q1. The degree of the polynomial 5x³ + 2x² - x + 7 is:</p>
+                        <div class="mcq-options">
+                            <label><input type="radio" name="q2"> 1</label>
+                            <label><input type="radio" name="q2"> 2</label>
+                            <label><input type="radio" name="q2"> 3</label>
+                            <label><input type="radio" name="q2"> 4</label>
+                        </div>
+                        <button onclick="checkAnswer('q2', 2)">Check Answer</button>
+                        <p class="result" id="result-q2"></p>
+                    </div>
+                </div>
             </div>
+
+            <!-- Chapter 3 -->
+            <div class="chapter">
+                <h3>Chapter 3: Pair of Linear Equations</h3>
+                <a href="maths/ch3-notes.html" class="btn">📄 Notes</a>
+                <button class="btn" onclick="toggleMCQ('mcq3')">❓ MCQ</button>
+
+                <div id="mcq3" class="mcq-container">
+                    <div class="mcq-question">
+                        <p>Q1. The graph of a pair of coincident lines has:</p>
+                        <div class="mcq-options">
+                            <label><input type="radio" name="q3"> One solution</label>
+                            <label><input type="radio" name="q3"> No solution</label>
+                            <label><input type="radio" name="q3"> Infinite solutions</label>
+                            <label><input type="radio" name="q3"> Two solutions</label>
+                        </div>
+                        <button onclick="checkAnswer('q3', 2)">Check Answer</button>
+                        <p class="result" id="result-q3"></p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
 
-    <!-- Chapter 2 -->
-    <div class="chapter">
-        <h3 onclick="toggleMCQ('mcq2')">Chapter 2: Polynomials</h3>
-        <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
-        <div id="mcq2" class="mcq-container">
-            <p>MCQs for this chapter coming soon...</p>
-        </div>
-    </div>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        &copy; 2025 Topper's Study Hub. All rights reserved.
+    </footer>
 
-    <!-- Chapter 3 -->
-    <div class="chapter">
-        <h3 onclick="toggleMCQ('mcq3')">Chapter 3: Pair of Linear Equations</h3>
-        <a href="maths/ch3-notes.html" class="btn">📄 Notes</a>
-        <div id="mcq3" class="mcq-container">
-            <p>MCQs for this chapter coming soon...</p>
-        </div>
-    </div>
-</section>
-
-<footer>
-    &copy; 2025 Topper's Study Hub. All rights reserved.
-</footer>
-
-<!-- JavaScript -->
-<script>
-function toggleMCQ(id) {
-    var mcq = document.getElementById(id);
-    mcq.style.display = (mcq.style.display === "block") ? "none" : "block";
-}
-
-function checkAnswer(questionName, correctAnswer) {
-    let options = document.getElementsByName(questionName);
-    let selected = null;
-    for (let option of options) {
-        if (option.checked) {
-            selected = option.value;
-            break;
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        function toggleMCQ(id) {
+            let mcqBox = document.getElementById(id);
+            mcqBox.style.display = (mcqBox.style.display === "block") ? "none" : "block";
         }
-    }
-    let resultDiv = document.getElementById("result-" + questionName);
-    if (selected === null) {
-        resultDiv.innerHTML = "<span style='color:yellow'>Please select an answer.</span>";
-    } else if (selected === correctAnswer) {
-        resultDiv.innerHTML = "<span style='color:lightgreen'>Correct ✅</span>";
-    } else {
-        resultDiv.innerHTML = "<span style='color:red'>Wrong ❌</span>";
-    }
-}
-</script>
+
+        function checkAnswer(questionName, correctIndex) {
+            let options = document.getElementsByName(questionName);
+            let result = document.getElementById("result-" + questionName);
+            let selected = -1;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].checked) {
+                    selected = i;
+                    break;
+                }
+            }
+            if (selected === -1) {
+                result.innerHTML = "Please select an option.";
+                result.style.color = "orange";
+                return;
+            }
+            if (selected === correctIndex) {
+                result.innerHTML = "✅ Correct!";
+                result.style.color = "lightgreen";
+            } else {
+                result.innerHTML = "❌ Wrong. Try again!";
+                result.style.color = "red";
+            }
+        }
+    </script>
 
 </body>
-                           </html>
-                           
+                                       </html>
+                                       
