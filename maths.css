@@ -1,32 +1,32 @@
-/* General page styling */
+/* ===== General Page Styles ===== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f9f9f9;
-    color: #333;
+    background-color: black;
+    color: yellow;
 }
 
-/* Header styling */
+/* ===== Header ===== */
 header {
-    background: #2c3e50;
-    color: white;
+    background-color: #003366; /* dark blue */
+    color: yellow;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
 }
 
 header .logo {
-    font-size: 1.5rem;
+    font-size: 20px;
     font-weight: bold;
 }
 
 nav ul {
     list-style: none;
-    display: flex;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 nav ul li {
@@ -34,85 +34,108 @@ nav ul li {
 }
 
 nav ul li a {
+    color: yellow;
     text-decoration: none;
-    color: white;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #1abc9c;
+    color: white;
 }
 
-/* Main content */
+/* ===== Content Section ===== */
 .content {
-    padding: 20px 40px;
+    padding: 20px;
 }
 
 h1 {
-    color: #2c3e50;
+    color: yellow;
+    border-bottom: 2px solid yellow;
+    padding-bottom: 10px;
 }
 
-.chapter-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+p {
+    color: white;
 }
 
+/* ===== Chapters ===== */
 .chapter {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    background-color: #001f33; /* deep navy */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }
 
-/* Buttons */
+.chapter h3 {
+    margin: 0;
+    cursor: pointer;
+    color: yellow;
+}
+
+.chapter h3:hover {
+    color: white;
+}
+
 .btn {
     display: inline-block;
-    background: #1abc9c;
-    color: white;
-    padding: 8px 16px;
-    margin-right: 10px;
-    margin-top: 8px;
+    background-color: blue;
+    color: yellow;
+    padding: 8px 15px;
+    margin-top: 10px;
     text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+    border-radius: 4px;
 }
 
 .btn:hover {
-    background: #16a085;
+    background-color: yellow;
+    color: black;
 }
 
-/* MCQ Container */
+/* ===== MCQ Section ===== */
 .mcq-container {
     display: none;
-    margin-top: 12px;
-    background: #f8f8f8;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: black;
+    border: 1px solid yellow;
+    border-radius: 5px;
 }
 
 .mcq-question {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .mcq-question p {
-    margin: 0 0 6px 0;
     font-weight: bold;
+    color: yellow;
 }
 
-input[type="radio"] {
-    margin-right: 5px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #2c3e50;
+label {
+    display: block;
+    margin-bottom: 5px;
     color: white;
-    margin-top: 30px;
+}
+
+button {
+    background-color: blue;
+    color: yellow;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: yellow;
+    color: black;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: #003366;
+    color: yellow;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
 }
