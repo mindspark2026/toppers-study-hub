@@ -4,87 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics - Topper's Study Hub</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="maths.css">
+    <style>
+        .mcq-container {
+            display: none;
+            margin-top: 10px;
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .mcq-question {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Topper's Study Hub</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Maths</a></li>
-                <li><a href="#">Science</a></li>
-                <li><a href="#">English</a></li>
-                <li><a href="#">SST</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <div class="logo">Topper's Study Hub</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="maths.html">Maths</a></li>
+            <li><a href="science.html">Science</a></li>
+            <li><a href="english.html">English</a></li>
+            <li><a href="sst.html">SST</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section class="content">
-        <h1>Mathematics</h1>
-        <p>Select a chapter to view Notes or MCQs.</p>
+<section class="content">
+    <h1>Mathematics</h1>
+    <p>Select a chapter to view Notes or MCQs.</p>
 
+    <div class="chapter-list">
         <div class="chapter">
             <h3>Chapter 1: Real Numbers</h3>
             <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
-            <button class="btn" onclick="toggleMCQs('mcq1')">📋 MCQs</button>
-
-            <div id="mcq1" class="mcq-container" style="display: none;">
-                <h4>MCQs for Chapter 1</h4>
-
-                <div class="mcq" data-answer="b">
-                    <p>1. What is the HCF of 18 and 24?</p>
-                    <label><input type="radio" name="q1" value="a"> 4</label><br>
-                    <label><input type="radio" name="q1" value="b"> 6</label><br>
-                    <label><input type="radio" name="q1" value="c"> 8</label><br>
-                    <button class="btn" onclick="checkAnswer(this)">Check</button>
-                    <div class="result"></div>
+            <button class="btn" onclick="toggleMCQ('mcq1')">❓ MCQ</button>
+            <div id="mcq1" class="mcq-container">
+                <div class="mcq-question">
+                    <p>1. HCF of 65 and 117 is:</p>
+                    <input type="radio" name="q1"> 1<br>
+                    <input type="radio" name="q1"> 13<br>
+                    <input type="radio" name="q1"> 5<br>
+                    <input type="radio" name="q1"> 3
                 </div>
-
-                <div class="mcq" data-answer="c">
-                    <p>2. Which is a prime number?</p>
-                    <label><input type="radio" name="q2" value="a"> 9</label><br>
-                    <label><input type="radio" name="q2" value="b"> 21</label><br>
-                    <label><input type="radio" name="q2" value="c"> 13</label><br>
-                    <button class="btn" onclick="checkAnswer(this)">Check</button>
-                    <div class="result"></div>
+                <div class="mcq-question">
+                    <p>2. LCM of 6 and 15 is:</p>
+                    <input type="radio" name="q2"> 15<br>
+                    <input type="radio" name="q2"> 30<br>
+                    <input type="radio" name="q2"> 45<br>
+                    <input type="radio" name="q2"> 60
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer>
-        &copy; 2025 Topper's Study Hub. All rights reserved.
-    </footer>
+        <div class="chapter">
+            <h3>Chapter 2: Polynomials</h3>
+            <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
+            <button class="btn" onclick="toggleMCQ('mcq2')">❓ MCQ</button>
+            <div id="mcq2" class="mcq-container">
+                <p>MCQs for Chapter 2 will go here...</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script>
-        function toggleMCQs(id) {
-            const mcqBox = document.getElementById(id);
-            mcqBox.style.display = mcqBox.style.display === "none" ? "block" : "none";
-        }
+<footer>
+    &copy; 2025 Topper's Study Hub. All rights reserved.
+</footer>
 
-        function checkAnswer(button) {
-            const mcq = button.closest('.mcq');
-            const correct = mcq.getAttribute('data-answer');
-            const selected = mcq.querySelector('input[type="radio"]:checked');
-            const result = mcq.querySelector('.result');
-
-            if (!selected) {
-                result.textContent = "Please select an answer.";
-                result.style.color = "orange";
-                return;
-            }
-
-            if (selected.value === correct) {
-                result.textContent = "✅ Correct!";
-                result.style.color = "green";
-            } else {
-                result.textContent = "❌ Wrong! Correct answer is option " + correct.toUpperCase();
-                result.style.color = "red";
-            }
-        }
-    </script>
+<script>
+function toggleMCQ(id) {
+    let mcqBox = document.getElementById(id);
+    mcqBox.style.display = (mcqBox.style.display === "block") ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
