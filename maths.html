@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics - Topper's Study Hub</title>
-    <link rel="stylesheet" href="maths.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -12,11 +12,11 @@
         <div class="logo">Topper's Study Hub</div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="maths.html">Maths</a></li>
-                <li><a href="science.html">Science</a></li>
-                <li><a href="english.html">English</a></li>
-                <li><a href="sst.html">SST</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Maths</a></li>
+                <li><a href="#">Science</a></li>
+                <li><a href="#">English</a></li>
+                <li><a href="#">SST</a></li>
             </ul>
         </nav>
     </header>
@@ -25,39 +25,31 @@
         <h1>Mathematics</h1>
         <p>Select a chapter to view Notes or MCQs.</p>
 
-        <div class="chapter-list">
-            <div class="chapter">
-                <h3>Chapter 1: Real Numbers</h3>
-                <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
+        <div class="chapter">
+            <h3>Chapter 1: Real Numbers</h3>
+            <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
+            <button class="btn" onclick="toggleMCQs('mcq1')">📋 MCQs</button>
 
-                <!-- MCQ block -->
-                <div class="mcq-container">
-                    <h4>MCQs for Chapter 1</h4>
+            <div id="mcq1" class="mcq-container" style="display: none;">
+                <h4>MCQs for Chapter 1</h4>
 
-                    <div class="mcq" data-answer="b">
-                        <p>1. What is the HCF of 18 and 24?</p>
-                        <label><input type="radio" name="q1" value="a"> 4</label>
-                        <label><input type="radio" name="q1" value="b"> 6</label>
-                        <label><input type="radio" name="q1" value="c"> 8</label>
-                        <button onclick="checkAnswer(this)">Check</button>
-                        <div class="result"></div>
-                    </div>
-
-                    <div class="mcq" data-answer="c">
-                        <p>2. Which is a prime number?</p>
-                        <label><input type="radio" name="q2" value="a"> 9</label>
-                        <label><input type="radio" name="q2" value="b"> 21</label>
-                        <label><input type="radio" name="q2" value="c"> 13</label>
-                        <button onclick="checkAnswer(this)">Check</button>
-                        <div class="result"></div>
-                    </div>
+                <div class="mcq" data-answer="b">
+                    <p>1. What is the HCF of 18 and 24?</p>
+                    <label><input type="radio" name="q1" value="a"> 4</label><br>
+                    <label><input type="radio" name="q1" value="b"> 6</label><br>
+                    <label><input type="radio" name="q1" value="c"> 8</label><br>
+                    <button class="btn" onclick="checkAnswer(this)">Check</button>
+                    <div class="result"></div>
                 </div>
-                <!-- End MCQ block -->
-            </div>
 
-            <div class="chapter">
-                <h3>Chapter 2: Polynomials</h3>
-                <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
+                <div class="mcq" data-answer="c">
+                    <p>2. Which is a prime number?</p>
+                    <label><input type="radio" name="q2" value="a"> 9</label><br>
+                    <label><input type="radio" name="q2" value="b"> 21</label><br>
+                    <label><input type="radio" name="q2" value="c"> 13</label><br>
+                    <button class="btn" onclick="checkAnswer(this)">Check</button>
+                    <div class="result"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -67,6 +59,11 @@
     </footer>
 
     <script>
+        function toggleMCQs(id) {
+            const mcqBox = document.getElementById(id);
+            mcqBox.style.display = mcqBox.style.display === "none" ? "block" : "none";
+        }
+
         function checkAnswer(button) {
             const mcq = button.closest('.mcq');
             const correct = mcq.getAttribute('data-answer');
@@ -90,5 +87,4 @@
     </script>
 
 </body>
-    </html>
-    
+</html>
