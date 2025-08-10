@@ -1,118 +1,101 @@
-/* ==== General Reset ==== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ==== Body ==== */
 body {
     font-family: Arial, sans-serif;
-    background-color: #0d1b2a; /* Dark Blue-Black */
-    color: #ffffff;
-    line-height: 1.6;
+    margin: 0;
+    background-color: #f4f8fc;
+    color: #333;
 }
 
-/* ==== Header ==== */
 header {
-    background-color: #000814; /* Black */
-    color: #ffd60a; /* Yellow */
+    background-color: #1e3a8a; /* deep blue */
+    color: white;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.5);
 }
 
-header .logo {
-    font-size: 1.5em;
+.logo {
+    font-size: 20px;
     font-weight: bold;
 }
 
-header .top-buttons a {
-    text-decoration: none;
-    background-color: #001d3d; /* Dark Navy */
-    color: #ffd60a;
+.nav-btn {
+    background-color: #facc15; /* yellow */
+    color: black;
     padding: 8px 14px;
     margin-left: 8px;
     border-radius: 5px;
-    font-size: 0.9em;
-    transition: 0.3s;
-}
-
-header .top-buttons a:hover {
-    background-color: #ffc300; /* Bright Yellow */
-    color: #000814; /* Black */
-}
-
-/* ==== Content Section ==== */
-.content {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-.content h1 {
-    color: #ffc300; /* Yellow */
-    margin-bottom: 10px;
-    border-bottom: 2px solid #ffc300;
-    padding-bottom: 5px;
-}
-
-.content p {
-    margin-bottom: 20px;
-    color: #e0e0e0;
-}
-
-/* ==== Chapter List ==== */
-.chapter-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.chapter {
-    background-color: #001d3d; /* Navy */
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 5px solid #ffc300; /* Yellow Accent */
-}
-
-.chapter h3 {
-    color: #ffd60a;
-    margin-bottom: 10px;
-}
-
-/* ==== Buttons ==== */
-.btn {
     text-decoration: none;
-    display: inline-block;
-    background-color: #ffc300; /* Yellow */
-    color: #000814; /* Black */
-    padding: 8px 16px;
-    border-radius: 5px;
-    margin-right: 8px;
     font-weight: bold;
     transition: 0.3s;
 }
 
-.btn:hover {
-    background-color: #ffd60a;
-    transform: scale(1.05);
+.nav-btn:hover {
+    background-color: #eab308;
 }
 
-/* Small Button */
-.btn.small {
-    font-size: 0.85em;
-    padding: 6px 12px;
-}
-
-/* ==== Footer ==== */
-footer {
-    background-color: #000814;
-    color: #ffd60a;
+.content {
+    padding: 20px;
     text-align: center;
-    padding: 12px;
-    margin-top: 30px;
-    font-size: 0.9em;
+}
+
+.subtitle {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.chapter-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.chapter-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.chapter-card h3 {
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.notes-btn {
+    background-color: #facc15; /* yellow */
+    color: black;
+}
+
+.notes-btn:hover {
+    background-color: #eab308;
+}
+
+.mcq-btn {
+    background-color: #2563eb; /* blue */
+}
+
+.mcq-btn:hover {
+    background-color: #1d4ed8;
+}
+
+footer {
+    background-color: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
 }
