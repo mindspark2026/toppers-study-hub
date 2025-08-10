@@ -8,130 +8,40 @@
 </head>
 <body>
 
-    <!-- ===== HEADER ===== -->
     <header>
-        <div class="logo">Topper's Study Hub</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="maths.html">Maths</a></li>
-                <li><a href="science.html">Science</a></li>
-                <li><a href="english.html">English</a></li>
-                <li><a href="sst.html">SST</a></li>
-            </ul>
-        </nav>
+        <div class="logo">📘 Mathematics</div>
+        <div class="top-buttons">
+            <a href="index.html" class="btn small">🏠 Home</a>
+            <a href="subjects.html" class="btn small">📚 Subjects</a>
+        </div>
     </header>
 
-    <!-- ===== CONTENT ===== -->
     <section class="content">
-        <h1>Mathematics</h1>
+        <h1>Mathematics - Class 10</h1>
         <p>Select a chapter to view Notes or MCQs.</p>
 
         <div class="chapter-list">
-
-            <!-- Chapter 1 -->
             <div class="chapter">
                 <h3>Chapter 1: Real Numbers</h3>
-                <a href="maths/ch1-notes.html" class="btn">📄 Notes</a>
-                <button class="btn" onclick="toggleMCQ('mcq1')">❓ MCQ</button>
-
-                <div id="mcq1" class="mcq-container">
-                    <div class="mcq-question">
-                        <p>Q1. What is the HCF of 48 and 60?</p>
-                        <div class="mcq-options">
-                            <label><input type="radio" name="q1"> 6</label>
-                            <label><input type="radio" name="q1"> 8</label>
-                            <label><input type="radio" name="q1"> 12</label>
-                            <label><input type="radio" name="q1"> 24</label>
-                        </div>
-                        <button onclick="checkAnswer('q1', 2)">Check Answer</button>
-                        <p class="result" id="result-q1"></p>
-                    </div>
-                </div>
+                <a href="pdfs/ch1-real-numbers.pdf" class="btn" download>📄 Notes</a>
+                <a href="maths/ch1-mcq.html" class="btn">❓ MCQs</a>
             </div>
-
-            <!-- Chapter 2 -->
             <div class="chapter">
                 <h3>Chapter 2: Polynomials</h3>
-                <a href="maths/ch2-notes.html" class="btn">📄 Notes</a>
-                <button class="btn" onclick="toggleMCQ('mcq2')">❓ MCQ</button>
-
-                <div id="mcq2" class="mcq-container">
-                    <div class="mcq-question">
-                        <p>Q1. The degree of the polynomial 5x³ + 2x² - x + 7 is:</p>
-                        <div class="mcq-options">
-                            <label><input type="radio" name="q2"> 1</label>
-                            <label><input type="radio" name="q2"> 2</label>
-                            <label><input type="radio" name="q2"> 3</label>
-                            <label><input type="radio" name="q2"> 4</label>
-                        </div>
-                        <button onclick="checkAnswer('q2', 2)">Check Answer</button>
-                        <p class="result" id="result-q2"></p>
-                    </div>
-                </div>
+                <a href="pdfs/ch2-polynomials.pdf" class="btn" download>📄 Notes</a>
+                <a href="maths/ch2-mcq.html" class="btn">❓ MCQs</a>
             </div>
-
-            <!-- Chapter 3 -->
             <div class="chapter">
                 <h3>Chapter 3: Pair of Linear Equations</h3>
-                <a href="maths/ch3-notes.html" class="btn">📄 Notes</a>
-                <button class="btn" onclick="toggleMCQ('mcq3')">❓ MCQ</button>
-
-                <div id="mcq3" class="mcq-container">
-                    <div class="mcq-question">
-                        <p>Q1. The graph of a pair of coincident lines has:</p>
-                        <div class="mcq-options">
-                            <label><input type="radio" name="q3"> One solution</label>
-                            <label><input type="radio" name="q3"> No solution</label>
-                            <label><input type="radio" name="q3"> Infinite solutions</label>
-                            <label><input type="radio" name="q3"> Two solutions</label>
-                        </div>
-                        <button onclick="checkAnswer('q3', 2)">Check Answer</button>
-                        <p class="result" id="result-q3"></p>
-                    </div>
-                </div>
+                <a href="pdfs/ch3-linear-equations.pdf" class="btn" download>📄 Notes</a>
+                <a href="maths/ch3-mcq.html" class="btn">❓ MCQs</a>
             </div>
-
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
         &copy; 2025 Topper's Study Hub. All rights reserved.
     </footer>
 
-    <!-- ===== SCRIPT ===== -->
-    <script>
-        function toggleMCQ(id) {
-            let mcqBox = document.getElementById(id);
-            mcqBox.style.display = (mcqBox.style.display === "block") ? "none" : "block";
-        }
-
-        function checkAnswer(questionName, correctIndex) {
-            let options = document.getElementsByName(questionName);
-            let result = document.getElementById("result-" + questionName);
-            let selected = -1;
-            for (let i = 0; i < options.length; i++) {
-                if (options[i].checked) {
-                    selected = i;
-                    break;
-                }
-            }
-            if (selected === -1) {
-                result.innerHTML = "Please select an option.";
-                result.style.color = "orange";
-                return;
-            }
-            if (selected === correctIndex) {
-                result.innerHTML = "✅ Correct!";
-                result.style.color = "lightgreen";
-            } else {
-                result.innerHTML = "❌ Wrong. Try again!";
-                result.style.color = "red";
-            }
-        }
-    </script>
-
 </body>
-                                       </html>
-                                       
+</html>
