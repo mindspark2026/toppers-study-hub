@@ -1,36 +1,118 @@
-/* ===== General Styling ===== */
-body {
-    font-family: Arial, sans-serif;
+/* ==== General Reset ==== */
+* {
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: white;
+    box-sizing: border-box;
 }
 
-/* ===== Header ===== */
+/* ==== Body ==== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0d1b2a; /* Dark Blue-Black */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ==== Header ==== */
 header {
-    background-color: #002147; /* dark navy blue */
-    padding: 15px 20px;
+    background-color: #000814; /* Black */
+    color: #ffd60a; /* Yellow */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.5);
 }
 
 header .logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: yellow;
 }
 
-nav ul {
-    list-style: none;
+header .top-buttons a {
+    text-decoration: none;
+    background-color: #001d3d; /* Dark Navy */
+    color: #ffd60a;
+    padding: 8px 14px;
+    margin-left: 8px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: 0.3s;
+}
+
+header .top-buttons a:hover {
+    background-color: #ffc300; /* Bright Yellow */
+    color: #000814; /* Black */
+}
+
+/* ==== Content Section ==== */
+.content {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.content h1 {
+    color: #ffc300; /* Yellow */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ffc300;
+    padding-bottom: 5px;
+}
+
+.content p {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* ==== Chapter List ==== */
+.chapter-list {
     display: flex;
-    margin: 0;
-    padding: 0;
+    flex-direction: column;
+    gap: 15px;
 }
 
-nav ul li {
-    margin-left: 15px;
+.chapter {
+    background-color: #001d3d; /* Navy */
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #ffc300; /* Yellow Accent */
 }
 
-na
+.chapter h3 {
+    color: #ffd60a;
+    margin-bottom: 10px;
+}
+
+/* ==== Buttons ==== */
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #ffc300; /* Yellow */
+    color: #000814; /* Black */
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-right: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #ffd60a;
+    transform: scale(1.05);
+}
+
+/* Small Button */
+.btn.small {
+    font-size: 0.85em;
+    padding: 6px 12px;
+}
+
+/* ==== Footer ==== */
+footer {
+    background-color: #000814;
+    color: #ffd60a;
+    text-align: center;
+    padding: 12px;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
