@@ -3,45 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics - Topper's Study Hub</title>
-    <link rel="stylesheet" href="maths.css">
+    <title>Mathematics</title>
+    <link rel="stylesheet" href="math.css">
 </head>
 <body>
 
-<header>
-    <div class="logo">📚 Topper's Study Hub</div>
-    <nav>
-        <a href="index.html" class="nav-btn">🏠 Home</a>
-        <a href="subjects.html" class="nav-btn">📖 Subjects</a>
-    </nav>
-</header>
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="title">Topper's Study Hub</div>
+        <nav>
+            <a href="index.html" class="btn">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Subjects ▾</button>
+                <div class="dropdown-content">
+                    <a href="math.html">Mathematics</a>
+                    <a href="science.html">Science</a>
+                    <a href="english.html">English</a>
+                    <a href="history.html">History</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<section class="content">
-    <h1>Mathematics</h1>
-    <p class="subtitle">Select a chapter to view or download Notes and practice MCQs.</p>
+    <!-- Page Content -->
+    <main>
+        <h1>Mathematics</h1>
+        <p>Select a chapter to view or download Notes and practice MCQs.</p>
 
-    <div class="chapter-list">
-        <div class="chapter-card">
-            <h3>Chapter 1: Real Numbers</h3>
-            <a href="notes/ch1-real-numbers.pdf" download class="btn notes-btn">📄 Notes</a>
-            <a href="maths/ch1-mcq.html" class="btn mcq-btn">❓ MCQ</a>
+        <div class="chapter">
+            <h2>Chapter 1: Real Numbers</h2>
+            <a href="notes/ch1-real-numbers.pdf" class="notes-btn" download>Notes</a>
+            <a href="mcq/ch1-mcq.html" class="mcq-btn">MCQ</a>
         </div>
-        <div class="chapter-card">
-            <h3>Chapter 2: Polynomials</h3>
-            <a href="notes/ch2-polynomials.pdf" download class="btn notes-btn">📄 Notes</a>
-            <a href="maths/ch2-mcq.html" class="btn mcq-btn">❓ MCQ</a>
-        </div>
-        <div class="chapter-card">
-            <h3>Chapter 3: Pair of Linear Equations</h3>
-            <a href="notes/ch3-linear-equations.pdf" download class="btn notes-btn">📄 Notes</a>
-            <a href="maths/ch3-mcq.html" class="btn mcq-btn">❓ MCQ</a>
-        </div>
-    </div>
-</section>
 
-<footer>
-    &copy; 2025 Topper's Study Hub. All rights reserved.
-</footer>
+        <div class="chapter">
+            <h2>Chapter 2: Polynomials</h2>
+            <a href="notes/ch2-polynomials.pdf" class="notes-btn" download>Notes</a>
+            <a href="mcq/ch2-mcq.html" class="mcq-btn">MCQ</a>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 3: Pair of Linear Equations</h2>
+            <a href="notes/ch3-pair-of-linear-equations.pdf" class="notes-btn" download>Notes</a>
+            <a href="mcq/ch3-mcq.html" class="mcq-btn">MCQ</a>
+        </div>
+    </main>
+
+    <script>
+        // Dropdown Click-to-Open
+        document.querySelector(".dropbtn").addEventListener("click", function() {
+            document.querySelector(".dropdown-content").classList.toggle("show");
+        });
+
+        // Close dropdown if clicked outside
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                document.querySelectorAll(".dropdown-content").forEach(dd => dd.classList.remove("show"));
+            }
+        }
+    </script>
 
 </body>
 </html>
