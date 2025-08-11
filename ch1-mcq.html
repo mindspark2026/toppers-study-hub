@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz - Real Numbers</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f3f6fc;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 5px;
+    }
+    #score {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        color: #555;
+    }
+    #progressBar {
+        width: 100%;
+        background-color: #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 15px;
+        margin-bottom: 20px;
+    }
+    #progress {
+        height: 100%;
+        width: 0%;
+        background-color: #4CAF50;
+        transition: width 0.4s ease;
+    }
+    .question {
+        background: white;
+        padding: 15px;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        max-width: 600px;
+        animation: fadeIn 0.6s ease;
+    }
+    .options button {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+    .options button:hover {
+        transform: scale(1.03);
+    }
+    .correct {
+        background: #4CAF50 !important;
+        color: white;
+        animation: correctAnim 0.5s ease;
+    }
+    .wrong {
+        background: #f44336 !important;
+        color: white;
+        animation: wrongAnim 0.5s ease;
+    }
+    @keyframes correctAnim {
+        from { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        to { transform: scale(1); }
+    }
+    @keyframes wrongAnim {
+        from { transform: scale(1); }
+        25% { transform: rotate(-5deg); }
+        50% { transform: rotate(5deg); }
+        75% { transform: rotate(-5deg); }
+        to { transform: rotate(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    #finishScreen {
+        display: none;
+        text-align: center;
+        margin-top: 50px;
+        animation: fadeIn 0.5s ease;
+    }
+    #restartBtn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    #restartBtn:hover {
+        background: #1e4bb8;
+    }
+</style>
+</head>
+<body>
+
+<h1>Mathematics - Real Numbers</h1>
+<div id="score">Score: 0 / 0</div>
+<div id="progressBar"><div id="progress"></div></div>
+
+<div id="quiz"></div>
+
+<div id="finishScreen">
+    <h2>🎉 Quiz Finished!</h2>
+    <p id="finalScore"></p>
+    <button id="restartBtn">Restart Quiz</button>
+</div>
+
+<audio id="rightSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+<audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+
+<script>
+const questions = [
+    {
+        question: "What is the HCF of 12 and 15?",
+        options: ["2", "3", "4", "5"],
+        answer: 1
+    },
+    {
+        question: "Which is a prime number?",
+        options: ["4", "6", "9", "11"],
+        answer: 3
+    },
+    {
+        question: "LCM of 5 and 7 is?",
+        options: ["12", "35", "40", "70"],
+        answer: 1
+    }
+];
+
+const quizDiv = document.getElementById('quiz');
+const scoreDiv = document.getElementById('score');
+const progressDiv = document.getElementById('progress');
+const finishScreen = document.getElementById('finishScreen');
+const finalScoreText = document.getElementById('finalScore');
+const restartBtn = document.getElementById('restartBtn');
+
+let savedAnswers = JSON.parse(localStorage.getItem("mcqAnswers")) || {};
+let score = 0;
+
+function renderQuiz() {
+    quizDiv.innerHTML = "";
+    finishScreen.style.display = "none";
+    score = 0;
+    questions.forEach((q, qIndex) => {
+        const questionDiv = document.createElement("div");
+        questionDiv.classList.add("question");
+
+        const qTitle = document.createElement("h3");
+        qTitle.textContent = `${qIndex + 1}. ${q.question}`;
+        questionDiv.appendChild(qTitle);
+
+        const optionsDiv = document.createElement("div");
+        optionsDiv.classList.add("options");
+
+        q.options.forEach((opt, oIndex) => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+
+            if (savedAnswers[qIndex] !== undefined) {
+                if (oIndex === q.answer) btn.classList.add("correct");
+                if (oIndex === savedAnswers[qIndex] && savedAnswers[qIndex] !== q.answer) btn.classList.add("wrong");
+                btn.disabled = true;
+                if (savedAnswers[qIndex] === q.answer) score++;
+            }
+
+            btn.addEventListener("click", () => handleAnswer(qIndex, oIndex, btn));
+            optionsDiv.appendChild(btn);
+        });
+
+        questionDiv.appendChild(optionsDiv);
+        quizDiv.appendChild(questionDiv);
+    });
+
+    updateScore();
+    updateProgress();
+    checkFinish();
+}
+
+function handleAnswer(qIndex, oIndex, btn) {
+    if (savedAnswers[qIndex] !== undefined) return; // Already answered
+
+    const correctIndex = questions[qIndex].answer;
+    const buttons = btn.parentElement.querySelectorAll("button");
+
+    if (oIndex === correctIndex) {
+        btn.classList.add("correct");
+        document.getElementById("rightSound").play();
+        score++;
+    } else {
+        btn.classList.add("wrong");
+        buttons[correctIndex].classList.add("correct");
+        document.getElementById("wrongSound").play();
+    }
+
+    buttons.forEach(b => b.disabled = true);
+    savedAnswers[qIndex] = oIndex;
+    localStorage.setItem("mcqAnswers", JSON.stringify(savedAnswers));
+
+    updateScore();
+    updateProgress();
+    checkFinish();
+}
+
+function updateScore() {
+    scoreDiv.textContent = `Score: ${score} / ${questions.length}`;
+}
+
+function updateProgress() {
+    const answered = Object.keys(savedAnswers).length;
+    const progressPercent = (answered / questions.length) * 100;
+    progressDiv.style.width = progressPercent + "%";
+}
+
+function checkFinish() {
+    if (Object.keys(savedAnswers).length === questions.length) {
+        quizDiv.innerHTML = "";
+        finishScreen.style.display = "block";
+        finalScoreText.textContent = `You scored ${score} out of ${questions.length}`;
+    }
+}
+
+restartBtn.addEventListener("click", () => {
+    localStorage.removeItem("mcqAnswers");
+    savedAnswers = {};
+    renderQuiz();
+});
+
+renderQuiz();
+</script>
+
+</body>
+</html>
