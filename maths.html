@@ -1,348 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCQ Quiz</title>
-<style>
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #dce35b, #45b649);
-    margin: 0;
-    padding: 0;
-}
-h1, h2 {
-    text-align: center;
-    color: #333;
-    margin: 10px;
-}
-.question {
-    background: white;
-    padding: 15px;
-    margin: 15px auto;
-    border-radius: 10px;
-    max-width: 900px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.options button {
-    padding: 14px;
-    width: 100%;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-    color: #fff;
-    transition: all 0.3s ease;
-}
-.options button:hover {
-    background: linear-gradient(135deg, #67B26F, #4ca2cd);
-    transform: scale(1.03);
-}
-.correct {
-    background: linear-gradient(135deg, #56ab2f, #a8e063) !important;
-}
-.wrong {
-    background: linear-gradient(135deg, #ff512f, #dd2476) !important;
-}
-#submitBtn, #restartBtn {
-    padding: 12px 28px;
-    font-size: 18px;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-#submitBtn {
-    background: linear-gradient(135deg, #43cea2, #185a9d);
-}
-#submitBtn:hover {
-    background: linear-gradient(135deg, #36d1dc, #5b86e5);
-}
-#restartBtn {
-    background: linear-gradient(135deg, #ff512f, #dd2476);
-    display: none;
-    margin-left: 15px;
-}
-#restartBtn:hover {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
-}
-#scoreDisplay {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-}
-.sticky-score {
-    position: sticky;
-    bottom: 0;
-    background: white;
-    padding: 10px;
-    border-top: 2px solid #ccc;
-    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-}
-@media (max-width: 600px) {
-    h1, h2 {
-        font-size: 1.2em;
-        padding: 0 10px;
-    }
-    .options button {
-        font-size: 14px;
-        padding: 12px;
-    }
-    #submitBtn, #restartBtn {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-}
-</style>
-</head>
-<body>
-<h1>MCQ Quiz</h1>
-<div id="quiz-container">
-   <div class="question">
-    <h2>Q1. Which of the following is a composite number?</h2>
-    <div class="options">
-        <button onclick="selectAnswer(this, false)">31</button>
-        <button onclick="selectAnswer(this, false)">53</button>
-        <button onclick="selectAnswer(this, true)">27</button>
-        <button onclick="selectAnswer(this, false)">19</button>
-    </div>
-</div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics</title>
+    <link rel="stylesheet" href="maths.css">
+  <!-- Top Bar -->
+    <header class="topbar">
+        <div class="title">Topper's Study Hub</div>
+        <nav>
+            <a href="index.html" class="btn">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Subjects ▾</button>
+                <div class="dropdown-content">
+                    <a href="math.html">Mathematics</a>
+                    <a href="science.html">Science</a>
+                    <a href="english.html">English</a>
+                    <a href="history.html">History</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<div class="question">
-    <h2>Q2. Which of the following is a prime number?</h2>
-    <div class="options">
-        <button onclick="selectAnswer(this, true)">31</button>
-        <button onclick="selectAnswer(this, false)">52</button>
-        <button onclick="selectAnswer(this, false)">21</button>
-        <button onclick="selectAnswer(this, false)">32</button>
-    </div>
-</div>
+    <!-- Page Content -->
+    <main>
+        <h1>Mathematics</h1>
+        <p>Select a chapter to view or download Notes and practice MCQs.</p>
 
-<div class="question">
-    <h2>Q3. If p and q are two prime numbers, what is their H.C.F?</h2>
-    <div class="options">
-        <button onclick="selectAnswer(this, true)">1</button>
-        <button onclick="selectAnswer(this, false)">0</button>
-        <button onclick="selectAnswer(this, false)">p × q</button>
-        <button onclick="selectAnswer(this, false)">cannot be determined</button>
-    </div>
-</div>
+        <div class="chapter">
+            <h2>Chapter 1: Real Numbers</h2>
+            <a href="notes/ch1-real-numbers.pdf" class="notes-btn" download>Notes</a>
+            <a href="mcq/ch1-mcq.html" class="mcq-btn">MCQ</a>
+        </div>
 
-<div class="question">
-    <h2>Q4. If a = p q² and b = p³ q, p, q being prime numbers, then L.C.M. (a, b) is</h2>
-    <div class="options">
-        <button onclick="selectAnswer(this, false)">p q</button>
-        <button onclick="selectAnswer(this, false)">p³ q³</button>
-        <button onclick="selectAnswer(this, true)">p³ q²</button>
-        <button onclick="selectAnswer(this, false)">p² q²</button>
-    </div>
-</div>
+        <div class="chapter">
+            <h2>Chapter 2: Polynomials</h2>
+            <a href="notes/ch2-polynomials.pdf" class="notes-btn" download>Notes</a>
+            <a href="mcq/ch2-mcq.html" class="mcq-btn">MCQ</a>
+        </div>
 
-<div class="question">
-    <h2>Q5. The highest common factor of 21 and 90 is:</h2>
-    <div class="options">
-        <button onclick="selectAnswer(this, true)">3</button>
-        <button onclick="selectAnswer(this, false)">2</button>
-        <button onclick="selectAnswer(this, false)">1</button>
-        <button onclick="selectAnswer(this, false)">4</button>
-    </div>
-</div>
+        <div class="chapter">
+            <h2>Chapter 3: Pair of Linear Equations</h2>
+            <a href="notes/ch3-pair-of-linear-equations.pdf" class="notes-btn" download>Notes</a>
+            <a href="mcq/ch3-mcq.html" class="mcq-btn">MCQ</a>
+        </div>
+    </main>
 
-<div class="question">
-    <h2>Q6. The HCF of smallest prime number and the smallest composite number is:</h2>
-    <div class="options">
-        <button onclick="selectAnswer(this, false)">3</button>
-        <button onclick="selectAnswer(this, false)">4</button>
-        <button onclick="selectAnswer(this, true)">2</button>
-        <button onclick="selectAnswer(this, false)">7</button>
-    </div>
-</div>
+    <script>
+        // Dropdown Click-to-Open
+        document.querySelector(".dropbtn").addEventListener("click", function() {
+            document.querySelector(".dropdown-content").classList.toggle("show");
+        });
 
-<div class="question">
-  <h2>Q6. If H.C.F. (26, 169) = 13, then L.C.M. (26, 169) is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">26</button>
-    <button onclick="selectAnswer(this, false)">52</button>
-    <button onclick="selectAnswer(this, true)">338</button>
-    <button onclick="selectAnswer(this, false)">13</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q8. If HCF (x, 8) = 4, LCM (x, 8) = 24, then x is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">8</button>
-    <button onclick="selectAnswer(this, false)">10</button>
-    <button onclick="selectAnswer(this, true)">12</button>
-    <button onclick="selectAnswer(this, false)">14</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q9. The sum of the HCF and LCM of 12, 21, 15 is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">423</button>
-    <button onclick="selectAnswer(this, true)">420</button>
-    <button onclick="selectAnswer(this, false)">417</button>
-    <button onclick="selectAnswer(this, false)">140</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q10. If the LCM of two numbers is 3600, then which of the following numbers cannot be their HCF?</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">600</button>
-    <button onclick="selectAnswer(this, true)">500</button>
-    <button onclick="selectAnswer(this, false)">400</button>
-    <button onclick="selectAnswer(this, false)">150</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q11. The LCM of the smallest two-digit composite number and the smallest composite number is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">12</button>
-    <button onclick="selectAnswer(this, true)">20</button>
-    <button onclick="selectAnswer(this, false)">4</button>
-    <button onclick="selectAnswer(this, false)">44</button>
-  </div>
-</div>
-
-<!-- From image 2 (set of LCM / HCF problems) -->
-<div class="question">
-  <h2>Q12. The smallest number which when divided by 17, 23 and 29 leaves a remainder 11 in each case is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">493</button>
-    <button onclick="selectAnswer(this, true)">11350</button>
-    <button onclick="selectAnswer(this, false)">11339</button>
-    <button onclick="selectAnswer(this, false)">667</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q13. If a = 2^2 × 3^7 × b and b = 2^2 × 3 × 5 × c and LCM(a, b, c) = 3780, then x is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">0</button>
-    <button onclick="selectAnswer(this, false)">1</button>
-    <button onclick="selectAnswer(this, true)">2</button>
-    <button onclick="selectAnswer(this, false)">3</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q14. Given that HCF (2520, 6600) = 40 and LCM (2520, 6600) = 252k, then the value of k is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">1650</button>
-    <button onclick="selectAnswer(this, false)">1600</button>
-    <button onclick="selectAnswer(this, true)">165</button>
-    <button onclick="selectAnswer(this, false)">1625</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q15. The smallest number divisible by all natural numbers between 1 and 10 (both inclusive) is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">2020</button>
-    <button onclick="selectAnswer(this, false)">2520</button>
-    <button onclick="selectAnswer(this, true)">1010</button>
-    <button onclick="selectAnswer(this, false)">5040</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q16. If the HCF of 408 and 1032 is expressible in the form 102a + 408 × 5, then the value of m is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, true)">4</button>
-    <button onclick="selectAnswer(this, false)">3</button>
-    <button onclick="selectAnswer(this, false)">1</button>
-    <button onclick="selectAnswer(this, false)">2</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q17. Two tanks contain 504 and 735 litres of milk respectively. Find the maximum capacity of a container which can measure the milk of either tank an exact number of times.</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">31 litre</button>
-    <button onclick="selectAnswer(this, false)">27 litre</button>
-    <button onclick="selectAnswer(this, true)">21 litre</button>
-    <button onclick="selectAnswer(this, false)">29 litre</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q18. There are 56 students in section A and 58 students in section B of a class. Find the minimum number of books required so that they can be distributed equally among students of section A or section B.</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">1280</button>
-    <button onclick="selectAnswer(this, false)">1640</button>
-    <button onclick="selectAnswer(this, true)">1580</button>
-    <button onclick="selectAnswer(this, false)">1624</button>
-  </div>
-</div>
-
-<div class="question">
-  <h2>Q19. There are 312, 260 and 156 students in class X, XI and XII respectively. Buses are to be hired so that each bus has equal number of students. The maximum number of students who can sit in a bus is:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, false)">52</button>
-    <button onclick="selectAnswer(this, false)">56</button>
-    <button onclick="selectAnswer(this, true)">48</button>
-    <button onclick="selectAnswer(this, false)">63</button>
-  </div>
-</div>
-
-<!-- From image 3 (irrational numbers) -->
-<div class="question">
-  <h2>Q20. Choose the irrational number:</h2>
-  <div class="options">
-    <button onclick="selectAnswer(this, true)">√45</button>
-    <button onclick="selectAnswer(this, false)">√100</button>
-    <button onclick="selectAnswer(this, false)">√9</button>
-    <button onclick="selectAnswer(this, false)">√225</button>
-  </div>
-</div>
-
-</div>
-<div class="sticky-score" style="text-align:center;">
-    <button id="submitBtn" onclick="submitQuiz()">Submit</button>
-    <button id="restartBtn" onclick="restartQuiz()">Restart</button>
-    <p id="scoreDisplay"></p>
-</div>
-<script>
-let score = 0;
-let answered = new Set();
-function selectAnswer(btn, isCorrect) {
-    let parent = btn.parentElement;
-    if (answered.has(parent)) return;
-    answered.add(parent);
-    if (isCorrect) {
-        btn.classList.add("correct");
-        score++;
-    } else {
-        btn.classList.add("wrong");
-    }
-}
-function submitQuiz() {
-    document.getElementById("scoreDisplay").textContent = `You scored ${score} / ${document.querySelectorAll('.question').length}`;
-    document.getElementById("restartBtn").style.display = 'inline-block';
-}
-function restartQuiz() {
-    score = 0;
-    answered.clear();
-    document.getElementById("scoreDisplay").textContent = '';
-    document.getElementById("restartBtn").style.display = 'none';
-    document.querySelectorAll('.options button').forEach(btn => {
-        btn.classList.remove('correct', 'wrong');
-    });
-}
-</script>
-</body>
-</html>
-
+        // Close dropdown if clicked outside
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                document.querySelectorAll(".dropdown-content").forEach(dd => dd.classList.remove("show"));
+            }
+        }
+    </script>f
