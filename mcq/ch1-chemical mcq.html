@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCQ Quiz</title>
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #dce35b, #45b649);
+    margin: 0;
+    padding: 0;
+}
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin: 10px;
+}
+.question {
+    background: white;
+    padding: 15px;
+    margin: 15px auto;
+    border-radius: 10px;
+    max-width: 900px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.options button {
+    padding: 14px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.options button:hover {
+    background: linear-gradient(135deg, #67B26F, #4ca2cd);
+    transform: scale(1.03);
+}
+.correct {
+    background: linear-gradient(135deg, #56ab2f, #a8e063) !important;
+}
+.wrong {
+    background: linear-gradient(135deg, #ff512f, #dd2476) !important;
+}
+#submitBtn, #restartBtn {
+    padding: 12px 28px;
+    font-size: 18px;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#submitBtn {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+#submitBtn:hover {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+}
+#restartBtn {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    display: none;
+    margin-left: 15px;
+}
+#restartBtn:hover {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+#scoreDisplay {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+.sticky-score {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 10px;
+    border-top: 2px solid #ccc;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+@media (max-width: 600px) {
+    h1, h2 {
+        font-size: 1.2em;
+        padding: 0 10px;
+    }
+    .options button {
+        font-size: 14px;
+        padding: 12px;
+    }
+    #submitBtn, #restartBtn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+</style>
+</head>
+<body>
+<h1>MCQ Quiz</h1>
+<div id="quiz-container">
+    <!-- DHA 01 Questions -->
+<div class="question">
+    <h2>Q1. Which of the following is a chemical change?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">Twinkling of stars</button>
+        <button onclick="selectAnswer(this, true)">Rusting of iron</button>
+        <button onclick="selectAnswer(this, false)">Cutting of fruits</button>
+        <button onclick="selectAnswer(this, false)">Boiling of water</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q2. A chemical change may involve -</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">change in colour only</button>
+        <button onclick="selectAnswer(this, false)">change in temperature only</button>
+        <button onclick="selectAnswer(this, false)">evolution of gas only</button>
+        <button onclick="selectAnswer(this, true)">all of the above</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q3. Which of the following is not a physical change?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">Boiling of water to give water vapour</button>
+        <button onclick="selectAnswer(this, false)">Melting of ice to give water</button>
+        <button onclick="selectAnswer(this, false)">Dissolving sugar in water</button>
+        <button onclick="selectAnswer(this, true)">Combustion of Liquefied Petroleum Gas (LPG)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q4. Which of the following is/are true when milk changes into curd?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(i) and (ii)</button>
+        <button onclick="selectAnswer(this, false)">(ii) and (iii)</button>
+        <button onclick="selectAnswer(this, true)">(i), (iii) and (iv)</button>
+        <button onclick="selectAnswer(this, false)">(i) and (iv)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q5. Which of the following does not involve a chemical reaction?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">digestion of food in our body</button>
+        <button onclick="selectAnswer(this, false)">process of respiration</button>
+        <button onclick="selectAnswer(this, false)">burning of candle wax when heated</button>
+        <button onclick="selectAnswer(this, true)">melting of candle wax on heating</button>
+    </div>
+</div>
+
+<!-- DHA 02 Questions -->
+<div class="question">
+    <h2>Q6. We balance the chemical equations so that they obey the:</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">law of constant proportion</button>
+        <button onclick="selectAnswer(this, true)">law of conservation of mass</button>
+        <button onclick="selectAnswer(this, false)">law of multiple proportion</button>
+        <button onclick="selectAnswer(this, false)">law of reciprocal proportion</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q7. Find the stoichiometric coefficients for the given chemical equation. aAl + bO₂ → cAl₂O₃</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">a = 3, b = 2, c = 4</button>
+        <button onclick="selectAnswer(this, false)">a = 2, b = 4, c = 3</button>
+        <button onclick="selectAnswer(this, true)">a = 4, b = 3, c = 2</button>
+        <button onclick="selectAnswer(this, false)">a = 2, b = 3, c = 4</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q8. Find the stoichiometric coefficients for the given chemical equation. aH₂S + bO₂ → cH₂O + dSO₂</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">a = 2, b = 1, c = 2, d = 3</button>
+        <button onclick="selectAnswer(this, false)">a = 2, b = 1, c = 1, d = 3</button>
+        <button onclick="selectAnswer(this, false)">a = 3, b = 2, c = 3, d = 2</button>
+        <button onclick="selectAnswer(this, true)">a = 2, b = 3, c = 2, d = 2</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q9. Find the stoichiometric coefficients for the given chemical equation. aNa₂SO₄ + bBaCl₂ → cBaSO₄ + dNaCl</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">a = 1, b = 1, c = 1, d = 1</button>
+        <button onclick="selectAnswer(this, false)">a = 2, b = 1, c = 1, d = 2</button>
+        <button onclick="selectAnswer(this, false)">a = 1, b = 2, c = 1, d = 2</button>
+        <button onclick="selectAnswer(this, true)">a = 1, b = 1, c = 1, d = 2</button>
+    </div>
+</div>
+
+<!-- DHA 03 Questions -->
+<div class="question">
+    <h2>Q10. Which of the following is/are an endothermic process(es)?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(i) and (ii)</button>
+        <button onclick="selectAnswer(this, false)">(i) and (iii)</button>
+        <button onclick="selectAnswer(this, false)">(i), (ii) and (iv)</button>
+        <button onclick="selectAnswer(this, true)">(i), (iii) and (iv)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q11. Which among the following is not an exothermic reaction?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">Burning of natural gas</button>
+        <button onclick="selectAnswer(this, true)">Photosynthesis</button>
+        <button onclick="selectAnswer(this, false)">Respiration</button>
+        <button onclick="selectAnswer(this, false)">Composting</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q12. Identify the value of variables in the chemical equation. aCa(OH)₂(aq) + CO₂(b) → CaCO₃(c) + dH₂O(l)</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">a = 2, b = gas (g), c = solid (s), d = 2</button>
+        <button onclick="selectAnswer(this, false)">a = 2, b = liquid (l), c = solid (s), d = 2</button>
+        <button onclick="selectAnswer(this, false)">a = 1, b = gas (g), c = aqueous (aq), d = 1</button>
+        <button onclick="selectAnswer(this, true)">a = 1, b = gas (g), c = solid (s), d = 1</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q13. Which of the following are combination reactions?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(i) and (iii)</button>
+        <button onclick="selectAnswer(this, false)">(iii) and (iv)</button>
+        <button onclick="selectAnswer(this, false)">(ii) and (iv)</button>
+        <button onclick="selectAnswer(this, true)">(ii) and (iii)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q14. Match the following:</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(a) - (i), (b) - (ii), (c) - (iii)</button>
+        <button onclick="selectAnswer(this, false)">(a) - (ii), (b) - (i), (c) - (iii)</button>
+        <button onclick="selectAnswer(this, true)">(a) - (iii), (b) - (i), (c) - (ii)</button>
+        <button onclick="selectAnswer(this, false)">(a) - (iii), (b) - (ii), (c) - (i)</button>
+    </div>
+</div>
+
+<!-- DHA 04 Questions -->
+<div class="question">
+    <h2>Q15. Which among the following statement(s) is(are) true? Exposure of silver chloride to sunlight for a long duration turns grey due to:</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, true)">(i) only</button>
+        <button onclick="selectAnswer(this, false)">(i) and (iii)</button>
+        <button onclick="selectAnswer(this, false)">(ii) and (iii)</button>
+        <button onclick="selectAnswer(this, false)">(iv) only</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q16. Identify X, Y, Z and W from the given options.</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">X: CaO, Y: CaCO₃, Z: CO₂, W: Ca(OH)₂</button>
+        <button onclick="selectAnswer(this, false)">X: CaCO₃, Y: CaO, Z: H₂O, W: Ca(OH)₂</button>
+        <button onclick="selectAnswer(this, true)">X: CaCO₃, Y: CaO, Z: CO₂, W: Ca(OH)₂</button>
+        <button onclick="selectAnswer(this, false)">X: CaO, Y: CaCO₃, Z: H₂O, W: Ca(OH)₂</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q17. Which of the following is correct for the products formed in the electrolysis of water?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">Cathode: O₂, Anode: CO₂</button>
+        <button onclick="selectAnswer(this, false)">Cathode: CO₂, Anode: H₂O</button>
+        <button onclick="selectAnswer(this, true)">Cathode: H₂, Anode: O₂</button>
+        <button onclick="selectAnswer(this, false)">Cathode: O₂, Anode: H₂</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q18. Assertion (A): The blue-green colour of the solution of copper chloride changes to colourless when lead metal is put into the solution.<br>Reason (R): Lead is more reactive than copper and it displaces it to form lead chloride.</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, true)">Both (A) and (R) are true and (R) is the correct explanation of (A)</button>
+        <button onclick="selectAnswer(this, false)">Both (A) and (R) are true but (R) is not the correct explanation of (A)</button>
+        <button onclick="selectAnswer(this, false)">(A) is true but (R) is false</button>
+        <button onclick="selectAnswer(this, false)">(A) is false but (R) is true</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q19. Metals generally react with dilute acids to produce hydrogen gas. Which one of the following metals does not react with dilute hydrochloric acid?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">Magnesium</button>
+        <button onclick="selectAnswer(this, false)">Aluminium</button>
+        <button onclick="selectAnswer(this, false)">Iron</button>
+        <button onclick="selectAnswer(this, true)">Copper</button>
+    </div>
+</div>
+
+<!-- DHA 05 Questions -->
+<div class="question">
+    <h2>Q20. In a double displacement reaction such as the reaction between sodium sulphate solution and barium chloride solution:</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(ii) and (iv)</button>
+        <button onclick="selectAnswer(this, false)">(i) and (iii)</button>
+        <button onclick="selectAnswer(this, false)">Only (ii)</button>
+        <button onclick="selectAnswer(this, true)">(ii), (iii) and (iv)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q21. Which among the following is(are) double displacement reaction(s)?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(i) and (ii)</button>
+        <button onclick="selectAnswer(this, false)">Only (i)</button>
+        <button onclick="selectAnswer(this, true)">Only (ii)</button>
+        <button onclick="selectAnswer(this, false)">(ii) and (iii)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q22. A chemical reaction between aqueous solution of silver nitrate and sodium chloride produces:</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">silver chloride (aqueous solution) and sodium nitrate (precipitate)</button>
+        <button onclick="selectAnswer(this, false)">silver nitrate (precipitate) and sodium nitrate (precipitate)</button>
+        <button onclick="selectAnswer(this, true)">silver chloride (precipitate) and sodium nitrate (aqueous solution)</button>
+        <button onclick="selectAnswer(this, false)">no chemical reaction takes place</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q23. Barium chloride on reacting with ammonium sulphate forms barium sulphate and ammonium chloride. Which of the following correctly represents the type of the reaction involved?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(i) only</button>
+        <button onclick="selectAnswer(this, false)">(ii) only</button>
+        <button onclick="selectAnswer(this, false)">(iv) only</button>
+        <button onclick="selectAnswer(this, true)">(ii) and (iv)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q24. Which among the following when formed as a precipitate will not be white in colour?</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">BaSO₄</button>
+        <button onclick="selectAnswer(this, false)">AgCl</button>
+        <button onclick="selectAnswer(this, false)">CaCO₃</button>
+        <button onclick="selectAnswer(this, true)">PbI₂</button>
+    </div>
+</div>
+
+<!-- DHA 06 Questions -->
+<div class="question">
+    <h2>Q25. On rusting iron forms a flaky layer over it which is ______ in colour.</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">green</button>
+        <button onclick="selectAnswer(this, true)">reddish-brown</button>
+        <button onclick="selectAnswer(this, false)">black</button>
+        <button onclick="selectAnswer(this, false)">white</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q26. Copper : Patina : Tamishing :: Silver : 'X' : 'Y'<br>Identify 'X' and 'Y' by understanding the analogy in the same order between copper, patina and tamishing.</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">X: Tamishing, Y: Patina</button>
+        <button onclick="selectAnswer(this, false)">X: Patina, Y: Rusting</button>
+        <button onclick="selectAnswer(this, false)">X: Rust, Y: Rusting</button>
+        <button onclick="selectAnswer(this, true)">X: Patina, Y: Tamishing</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q27. The following reaction is an example of a:<br>4NH₃(g) + 5O₂(g) → 4NO(g) + 6H₂O(g)</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(i) displacement reaction</button>
+        <button onclick="selectAnswer(this, false)">(ii) combination reaction</button>
+        <button onclick="selectAnswer(this, true)">(iii) redox reaction</button>
+        <button onclick="selectAnswer(this, false)">(iv) neutralisation reaction</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q28. Which of the following statements about the given reaction are correct?<br>3Fe(s) + 4H₂O(g) → Fe₃O₄(s) + 4H₂(g)</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, false)">(i), (ii) and (iii)</button>
+        <button onclick="selectAnswer(this, false)">(iii) and (iv)</button>
+        <button onclick="selectAnswer(this, true)">(i), (ii) and (iv)</button>
+        <button onclick="selectAnswer(this, false)">(ii) and (iv)</button>
+    </div>
+</div>
+
+<div class="question">
+    <h2>Q29. Identify the oxidising agent (oxidant) in the following reactions.<br>Pb₃O₄ + 8HCl → 3PbCl₂ + Cl₂ + 4H₂O</h2>
+    <div class="options">
+        <button onclick="selectAnswer(this, true)">Pb₃O₄</button>
+        <button onclick="selectAnswer(this, false)">HCl</button>
+        <button onclick="selectAnswer(this, false)">PbCl₂</button>
+        <button onclick="selectAnswer(this, false)">H₂O</button>
+    </div>
+</div>
+</div>
+<div class="sticky-score" style="text-align:center;">
+    <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+    <button id="restartBtn" onclick="restartQuiz()">Restart</button>
+    <p id="scoreDisplay"></p>
+</div>
+<script>
+let score = 0;
+let answered = new Set();
+function selectAnswer(btn, isCorrect) {
+    let parent = btn.parentElement;
+    if (answered.has(parent)) return;
+    answered.add(parent);
+    if (isCorrect) {
+        btn.classList.add("correct");
+        score++;
+    } else {
+        btn.classList.add("wrong");
+    }
+}
+function submitQuiz() {
+    document.getElementById("scoreDisplay").textContent = `You scored ${score} / ${document.querySelectorAll('.question').length}`;
+    document.getElementById("restartBtn").style.display = 'inline-block';
+}
+function restartQuiz() {
+    score = 0;
+    answered.clear();
+    document.getElementById("scoreDisplay").textContent = '';
+    document.getElementById("restartBtn").style.display = 'none';
+    document.querySelectorAll('.options button').forEach(btn => {
+        btn.classList.remove('correct', 'wrong');
+    });
+}
+</script>
+</body>
+</html>
